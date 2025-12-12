@@ -4,10 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//리덕스 스토어
+import { Provider } from 'react-redux'
+import { store } from './redux/AppStore'
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <App />
+    {/* redux를 적용하고 싶은 컴포넌트에 상위 Provider로 감싸줌 동작시킬 */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>
 );
 
